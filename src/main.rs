@@ -1,4 +1,4 @@
-use std::{env, fs, fs::File, path::Path};
+use std::{env, fs};
 
 pub mod todo;
 
