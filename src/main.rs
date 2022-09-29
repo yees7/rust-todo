@@ -1,6 +1,9 @@
 use std::{env, fs};
 
 pub mod todo;
+pub extern crate colored;
+pub extern crate serde;
+pub extern crate serde_json;
 
 mod get_todo;
 use get_todo::get_todo;
