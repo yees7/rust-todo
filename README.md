@@ -33,16 +33,24 @@ Tag Colors:
 
 ## Installation
 
+Install Rust and Cargo using [`rustup.rs`](https://rustup.rs/)
+
+Check if it's properly installed:
+
+```
+rustc --version
+cargo --version
+```
+
+### With crates.io
+
+```
+cargo install rust-todo
+```
+
 ### Building from source
 
-1. Install Rust and Cargo using [`rustup.rs`](https://rustup.rs/)
 
-    Check if it's properly installed:
-
-    ```
-    rustc --version
-    cargo --version
-    ```
 
 1. Clone the repository:
     ```
