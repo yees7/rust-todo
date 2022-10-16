@@ -30,7 +30,7 @@ fn main() {
     match &*args[1] {
         "--help" | "-h" => print_help(),
         "--get" | "-g" => get_todo(args[2].parse().unwrap()),
-        "--list" | "-l" => get_todo_all(),
+        "--list" | "-l" => {get_todo_all(&args[2..args.len()])},
         "--new" | "-n" => new_todo(args[2..args.len()].join(" ").clone()),
         "--clear" | "-c" => {fs::write("data.json", "[]").unwrap();println!("Todo list cleared.")},
         "--remove" | "-r" => remove_todo(args[2].parse().unwrap()),
@@ -45,13 +45,15 @@ fn print_help() {
     println!("A todo-list CLI tool written in Rust");
     println!();
     println!("Usage:");
-    println!("    rtodo [OPTIONS]");
-    println!("    rtodo [OPTIONS] [ARGUMENTS]");
+    println!("    rust-todo [OPTIONS]");
+    println!("    rust-todo [OPTIONS] [ARGUMENTS]");
     println!();
     println!("Options:");
     println!("    --help, -h                     Prints this help message");
     println!("    --get, -g     [INDEX]          Prints todo info at index");
-    println!("    --list, -l                     Prints all todos");
+    println!("    --list, -l    [ARGUMENTS]      Prints all todos");
+    println!("                  --finished, -f   Prints all finished todos");
+    println!("                  --unfinished, -u Prints all unfinished todos");
     println!("    --new, -n     [NAME]           Creates new todo with name");
     println!("    --clear, -c                    Clears all todos");
     println!("    --remove, -r  [INDEX]          Removes todo at index");
