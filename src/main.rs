@@ -31,7 +31,7 @@ fn main() {
         "--help" | "-h" => print_help(),
         "--get" | "-g" => get_todo(args[2].parse().unwrap()),
         "--list" | "-l" => get_todo_all(),
-        "--new" | "-n" => new_todo(args[2].clone()),
+        "--new" | "-n" => new_todo(args[2..args.len()].join(" ").clone()),
         "--clear" | "-c" => {fs::write("data.json", "[]").unwrap();println!("Todo list cleared.")},
         "--remove" | "-r" => remove_todo(args[2].parse().unwrap()),
         "--tag" | "-t" => tag_todo(args[2].parse().expect(&format!("Index '{}' invalid", args[2])), args[3].parse().unwrap()),
